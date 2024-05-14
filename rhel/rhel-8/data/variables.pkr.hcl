@@ -1,4 +1,4 @@
-# Copyright 2023-2024 Broadcom. All rights reserved.
+# Copyright 2023-2024 BEKPO. All rights reserved.
 # SPDX-License-Identifier: BSD-2
 
 /*
@@ -29,23 +29,27 @@ variable "rhsm_password" {
 variable "vsphere_endpoint" {
   type        = string
   description = "The fully qualified domain name or IP address of the vCenter Server instance."
+  default = "vmware.pima.edu"
 }
 
 variable "vsphere_username" {
   type        = string
   description = "The username to login to the vCenter Server instance."
   sensitive   = true
+  default = "terraform@vsphere.pima.edu"
 }
 
 variable "vsphere_password" {
   type        = string
   description = "The password for the login to the vCenter Server instance."
   sensitive   = true
+  default = "cK23Rab_HK6med-vlssy"
 }
 
 variable "vsphere_insecure_connection" {
   type        = bool
   description = "Do not validate vCenter Server TLS certificate."
+  default = true
 }
 
 // vSphere Settings
@@ -53,41 +57,44 @@ variable "vsphere_insecure_connection" {
 variable "vsphere_datacenter" {
   type        = string
   description = "The name of the target vSphere datacenter."
-  default     = ""
+  default     = "Involta"
 }
 
 variable "vsphere_cluster" {
   type        = string
   description = "The name of the target vSphere cluster."
-  default     = ""
+  default     = "INV-Nutanix"
 }
 
 variable "vsphere_host" {
   type        = string
   description = "The name of the target ESXi host."
-  default     = ""
+  default     = "INV-Nutanix"
 }
 
 variable "vsphere_datastore" {
   type        = string
   description = "The name of the target vSphere datastore."
+  default = "VirtualMachines"
 }
 
 variable "vsphere_network" {
   type        = string
   description = "The name of the target vSphere network segment."
+  default = "VLAN400"
+
 }
 
 variable "vsphere_folder" {
   type        = string
   description = "The name of the target vSphere folder."
-  default     = ""
+  default     = "ISO/RHEL"
 }
 
 variable "vsphere_resource_pool" {
   type        = string
   description = "The name of the target vSphere resource pool."
-  default     = ""
+  default     = "RP-LinuxBuild"
 }
 
 variable "vsphere_set_host_for_datastore_uploads" {
