@@ -126,21 +126,25 @@ variable "vm_guest_os_timezone" {
 variable "vm_guest_os_family" {
   type        = string
   description = "The guest operating system family. Used for naming and VMware Tools."
+  default = "linux"
 }
 
 variable "vm_guest_os_name" {
   type        = string
   description = "The guest operating system name. Used for naming."
+  default = "rhel"
 }
 
 variable "vm_guest_os_version" {
   type        = string
   description = "The guest operating system version. Used for naming."
+  default = "8.8"
 }
 
 variable "vm_guest_os_type" {
   type        = string
   description = "The guest operating system type, also know as guestid."
+  default = "rhel8_64Guest"
 }
 
 variable "vm_firmware" {
@@ -164,11 +168,13 @@ variable "vm_cdrom_count" {
 variable "vm_cpu_count" {
   type        = number
   description = "The number of virtual CPUs."
+  default = 2
 }
 
 variable "vm_cpu_cores" {
   type        = number
   description = "The number of virtual CPUs cores per socket."
+  default = 1
 }
 
 variable "vm_cpu_hot_add" {
@@ -279,16 +285,19 @@ variable "common_ovf_export_overwrite" {
 variable "common_iso_datastore" {
   type        = string
   description = "The name of the source vSphere datastore for the guest operating system ISO."
+  default = "VirtualMachines"
 }
 
 variable "iso_path" {
   type        = string
   description = "The path on the source vSphere datastore for the guest operating system ISO."
+  default = "ISO/RHEL/rhel-8.8-x86_64-dvd.iso"
 }
 
 variable "iso_file" {
   type        = string
   description = "The file name of the guest operating system ISO."
+  default = "rhel-8.8-x86_64-dvd.iso"
 }
 
 // Boot Settings
@@ -296,6 +305,7 @@ variable "iso_file" {
 variable "common_data_source" {
   type        = string
   description = "The provisioning data source. One of `http` or `disk`."
+  default = "disk"
 }
 
 variable "common_http_ip" {
@@ -307,11 +317,18 @@ variable "common_http_ip" {
 variable "common_http_port_min" {
   type        = number
   description = "The start of the HTTP port range."
+  default = 8600
 }
 
 variable "common_http_port_max" {
   type        = number
   description = "The end of the HTTP port range."
+  default = 8610
+}
+
+variable "common_http_port_directory" {
+  type        = string
+  default = "./artifacts"
 }
 
 variable "vm_boot_order" {
@@ -323,11 +340,13 @@ variable "vm_boot_order" {
 variable "vm_boot_wait" {
   type        = string
   description = "The time to wait before boot."
+  default = "6s"
 }
 
 variable "common_ip_wait_timeout" {
   type        = string
   description = "Time to wait for guest operating system IP address response."
+  default = "20m"
 }
 
 variable "common_ip_settle_timeout" {
@@ -339,6 +358,7 @@ variable "common_ip_settle_timeout" {
 variable "common_shutdown_timeout" {
   type        = string
   description = "Time to wait for guest operating system shutdown."
+  default = "20s"
 }
 
 // Communicator Settings and Credentials
@@ -347,18 +367,20 @@ variable "build_username" {
   type        = string
   description = "The username to login to the guest operating system."
   sensitive   = true
+  default = "pccadmin"
 }
 
 variable "build_password" {
   type        = string
   description = "The password to login to the guest operating system."
   sensitive   = true
+  default = "TestPass"
 }
 
 variable "build_password_encrypted" {
   type        = string
   description = "The SHA-512 encrypted password to login to the guest operating system."
-  sensitive   = true
+  sensitive   = false
 }
 
 variable "build_key" {
@@ -395,11 +417,13 @@ variable "communicator_proxy_password" {
 variable "communicator_port" {
   type        = string
   description = "The port for the communicator protocol."
+  default = "22"
 }
 
 variable "communicator_timeout" {
   type        = string
   description = "The timeout for the communicator protocol."
+  default = "30m"
 }
 
 // Ansible Credentials
