@@ -44,18 +44,18 @@ variable "domain-4" {
   default = "edu-domain.pima.edu"
 }
 
-variable "ipv4_address" {
+variable "vm_ip_address" {
   type = string
   description = "The IP address of the VM (e.g. 172.16.100.192)."
   default = "10.200.68.208"
 }
 
-variable "ipv4_netmask" {
+variable "vm_ip_netmask" {
   type = number
   default = 24
 }
 
-variable "ipv4_gateway" {
+variable "vm_ip_gateway" {
   type = string
   description = "The gateway of the VM (e.g. 172.16.100.1)."
   default = "10.200.68.1"
