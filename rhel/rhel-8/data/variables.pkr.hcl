@@ -132,7 +132,7 @@ variable "vm_guest_os_family" {
 variable "vm_guest_os_name" {
   type        = string
   description = "The guest operating system name. Used for naming."
-  default = "rhel"
+  default = "rhl8-template-dev"
 }
 
 variable "vm_guest_os_version" {
@@ -180,7 +180,7 @@ variable "vm_cpu_cores" {
 variable "vm_cpu_hot_add" {
   type        = bool
   description = "Enable hot add CPU."
-  default     = false
+  default     = true
 }
 
 variable "vm_mem_size" {
@@ -191,12 +191,13 @@ variable "vm_mem_size" {
 variable "vm_mem_hot_add" {
   type        = bool
   description = "Enable hot add memory."
-  default     = false
+  default     = true
 }
 
 variable "vm_disk_size" {
   type        = number
   description = "The size for the virtual disk in MB."
+  default = 20000
 }
 
 variable "vm_disk_controller_type" {
@@ -311,7 +312,7 @@ variable "common_data_source" {
 variable "common_http_ip" {
   type        = string
   description = "Define an IP address on the host to use for the HTTP server."
-  default     = null
+  default = "10.200.68.42"
 }
 
 variable "common_http_port_min" {
@@ -323,7 +324,7 @@ variable "common_http_port_min" {
 variable "common_http_port_max" {
   type        = number
   description = "The end of the HTTP port range."
-  default = 8610
+  default = 8600
 }
 
 variable "common_http_port_directory" {
@@ -340,7 +341,7 @@ variable "vm_boot_order" {
 variable "vm_boot_wait" {
   type        = string
   description = "The time to wait before boot."
-  default = "6s"
+  default = "20s"
 }
 
 variable "common_ip_wait_timeout" {

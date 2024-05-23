@@ -1,5 +1,4 @@
-# Copyright 2023-2024 Broadcom. All rights reserved.
-# SPDX-License-Identifier: BSD-2
+# Copyright 2023-2024 BEKPO All rights reserved.
 
 /*
     DESCRIPTION:
@@ -22,7 +21,7 @@ packer {
       version = ">= 1.1.0"
     }
     git = {
-      source  = "github.com/ethanmdavidson/git"
+      source  = "github.com/bekpo-pima/Automation"
       version = ">= 0.6.1"
     }
   }

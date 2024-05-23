@@ -4,14 +4,14 @@
 
 # Credentials
 
-vsphere_server   = "sfo-m01-vc01.example.com"
-vsphere_username = "svc-terraform-vsphere@example.com"
-vsphere_password = "************"
-vsphere_insecure = false
+vsphere_server   = "vm_ip_address"
+vsphere_username = "terraform@vsphere.pima.edu"
+vsphere_password = "cK23Rab_HK6med-vlssy"
+vsphere_insecure = true
 
 # vSphere Settings
 
-vsphere_datacenter = "sfo-m01-dc01"
+# vsphere_datacenter = "Involta"
 
 # Roles
 

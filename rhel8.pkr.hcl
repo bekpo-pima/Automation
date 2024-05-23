@@ -1,4 +1,4 @@
-# Copyright 2023-2024 Broadcom. All rights reserved.
+# Copyright 2023-2024 BEKPO. All rights reserved.
 # SPDX-License-Identifier: BSD-2
 
 /*
@@ -22,7 +22,7 @@ packer {
       version = ">= 1.1.0"
     }
     git = {
-      source  = "github.com/ethanmdavidson/git"
+      source  = "github.com/bekpo-pima/Automation"
       version = ">= 0.4.3"
     }
   }
@@ -98,7 +98,33 @@ source "vsphere-iso" "linux-rhel" {
   resource_pool                  = var.vsphere_resource_pool
   set_host_for_datastore_uploads = var.vsphere_set_host_for_datastore_uploads
 
+  // Guest Operating System Metadata
+  vm_guest_os_language = "en_US"
+  vm_guest_os_keyboard = "us"
+  vm_guest_os_timezone = "UTC"
+  vm_guest_os_family   = "linux"
+  vm_guest_os_name     = "rhel"
+  vm_guest_os_version  = "8.8"
+
+  // Virtual Machine Guest Operating System Setting
+  vm_guest_os_type = "rhel8_64Guest"
+
   // Virtual Machine Settings
+
+  vm_firmware              = "efi-secure"
+  vm_cdrom_type            = "sata"
+  vm_cdrom_count           = 1
+  vm_cpu_count             = 2
+  vm_cpu_cores             = 1
+  vm_cpu_hot_add           = true
+  vm_mem_size              = 2048
+  vm_mem_hot_add           = true
+  vm_disk_size             = 40960
+  vm_disk_controller_type  = ["pvscsi"]
+  vm_disk_thin_provisioned = true
+  vm_network_card          = "vmxnet3"
+
+  /*
   vm_name              = local.vm_name
   guest_os_type        = var.vm_guest_os_type
   firmware             = var.vm_firmware
@@ -109,6 +135,8 @@ source "vsphere-iso" "linux-rhel" {
   RAM_hot_plug         = var.vm_mem_hot_add
   cdrom_type           = var.vm_cdrom_type
   disk_controller_type = var.vm_disk_controller_type
+  */
+
   storage {
     disk_size             = var.vm_disk_size
     disk_thin_provisioned = var.vm_disk_thin_provisioned
@@ -123,7 +151,9 @@ source "vsphere-iso" "linux-rhel" {
   notes                = local.build_description
 
   // Removable Media Settings
-  iso_paths    = local.iso_paths
+# iso_paths    = local.iso_paths
+  iso_path = "ISO/RHEL/rhel-8.8-x86_64-dvd.iso"
+  iso_file = "rhel-8.8-x86_64-dvd.iso"
   http_content = var.common_data_source == "http" ? local.data_source_content : null
   cd_content   = var.common_data_source == "disk" ? local.data_source_content : null
 
@@ -131,8 +161,12 @@ source "vsphere-iso" "linux-rhel" {
   http_ip       = var.common_data_source == "http" ? var.common_http_ip : null
   http_port_min = var.common_data_source == "http" ? var.common_http_port_min : null
   http_port_max = var.common_data_source == "http" ? var.common_http_port_max : null
-  boot_order    = var.vm_boot_order
-  boot_wait     = var.vm_boot_wait
+  vm_boot_order = "disk,cdrom"
+  vm_boot_wait  = "6s"
+
+# boot_order    = var.vm_boot_order
+# boot_wait     = var.vm_boot_wait
+
   boot_command = [
     // This sends the "up arrow" key, typically used to navigate through boot menu options.
     "<up>",
