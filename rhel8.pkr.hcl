@@ -22,7 +22,7 @@ packer {
       version = ">= 1.1.0"
     }
     git = {
-      source  = "github.com/bekpo-pima/Automation"
+      source  = "https://api.github.com/bekpo-pima/Automation"
       version = ">= 0.4.3"
     }
   }
