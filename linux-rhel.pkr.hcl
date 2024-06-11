@@ -21,7 +21,7 @@ packer {
       version = ">= 1.1.0"
     }
     git = {
-      source  = "github.com/hashicorp/packer"
+      source  = "github.com/hashicorp/packer/git"
       version = ">= 1.11.0"
     }
   }
