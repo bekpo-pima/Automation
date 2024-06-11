@@ -14,7 +14,7 @@ packer {
   required_plugins {
     vsphere = {
       source  = "github.com/hashicorp/vsphere"
-      version = ">= 1.2.4"
+      version = ">= 1.3.0"
     }
     ansible = {
       source  = "github.com/hashicorp/ansible"
@@ -22,7 +22,7 @@ packer {
     }
     git = {
       source  = "github.com/bekpo-pima/Automation/git"
-      version = ">= 0.6.1"
+      version = ">= 0.6.2"
     }
   }
 }
