@@ -1,4 +1,4 @@
-# Copyright 2023-2024 Broadcom. All rights reserved.
+# Copyright 2023-2024 BEKPO. All rights reserved.
 # SPDX-License-Identifier: BSD-2
 
 /*
@@ -16,8 +16,7 @@ vm_guest_os_name     = "rhel"
 vm_guest_os_version  = "8.9"
 
 // Virtual Machine Guest Operating System Setting
-vm_guest_os_type      = "rhel8_64Guest"
-vm_guest_os_cloudinit = false
+vm_guest_os_type = "rhel8_64Guest"
 
 // Virtual Machine Hardware Settings
 vm_firmware              = "efi-secure"
@@ -25,18 +24,17 @@ vm_cdrom_type            = "sata"
 vm_cdrom_count           = 1
 vm_cpu_count             = 2
 vm_cpu_cores             = 1
-vm_cpu_hot_add           = false
+vm_cpu_hot_add           = true
 vm_mem_size              = 2048
-vm_mem_hot_add           = false
+vm_mem_hot_add           = true
 vm_disk_size             = 40960
 vm_disk_controller_type  = ["pvscsi"]
 vm_disk_thin_provisioned = true
 vm_network_card          = "vmxnet3"
 
 // Removable Media Settings
-iso_datastore_path       = "iso/linux/rhel"
-iso_content_library_item = "rhel-8.9-x86_64-dvd"
-iso_file                 = "rhel-8.9-x86_64-dvd.iso"
+iso_path = "ISO/RHEL/rhel-8.8-x86_64-dvd.iso"
+iso_file = "rhel-8.8-x86_64-dvd.iso"
 
 // Boot Settings
 vm_boot_order = "disk,cdrom"
