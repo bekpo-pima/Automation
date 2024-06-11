@@ -22,8 +22,8 @@ packer {
       version = ">= 1.1.0"
     }
     git = {
-      source  = "github.com/bekpo-pima/Automation/git"
-      version = ">= 0.4.3"
+      source  = "github.com/ethanmdavidson/git"
+      version = ">= 0.6.2"
     }
   }
 }
